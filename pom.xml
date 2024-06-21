@@ -13,7 +13,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <skipTests>true</skipTests>
-        <docker.host>http://192.168.3.105:2375</docker.host>
+        <docker.host>tcp://192.168.40.128:2375</docker.host>
         <docker.maven.plugin.version>0.40.0</docker.maven.plugin.version>
         <druid.version>1.2.14</druid.version>
         <hutool.version>5.8.9</hutool.version>
@@ -136,16 +136,16 @@
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>${docker.maven.plugin.version}</version>
-<!--                <executions>-->
-<!--                    &lt;!&ndash;如果想在项目打包时构建镜像添加&ndash;&gt;-->
-<!--                    <execution>-->
-<!--                        <id>build-image</id>-->
-<!--                        <phase>package</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>build</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
+                <executions>
+                    <!--如果想在项目打包时构建镜像添加-->
+                    <execution>
+                        <id>build-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <!-- Docker 远程管理地址-->
                     <dockerHost>${docker.host}</dockerHost>
